@@ -1,4 +1,4 @@
-# Linode Marketplace Postgresql Cluster
+# Akamai Compute Marketplace PostgreSQL One-Click Cluster
 
 ![postgresql-diagram](images/psql.png)
 
