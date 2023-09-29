@@ -22,7 +22,7 @@ create_runner () {
         "swap_size": 512,
         "image": "linode/ubuntu22.04",
         "root_pass": "'"${root_password}"'",
-        "stackscript_id": 1112851,
+        "stackscript_id": 1244472,
         "stackscript_data": {
             "repository": "'"${repo}"'",
             "gh_password": "'"${registration_token}"'",
