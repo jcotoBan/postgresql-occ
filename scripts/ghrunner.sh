@@ -37,9 +37,9 @@ create_runner () {
         "type": "g6-standard-4",
         "region": "us-southeast"
         }' \
-        https://api.linode.com/v4/linode/instances | jq -r .id)
+        https://api.linode.com/v4/linode/instances) | #jq -r .id)
 
-        echo linode_id
+        echo $linode_ids
 }
 
 wait_for_it () {
