@@ -32,13 +32,11 @@ create_runner () {
         ],
         "booted": true,
         "private_ip": true,
-        "label": "'"${repo}_${date}"'",
+        "label": "'"${repo}_${date}_jcc"'",
         "type": "g6-standard-4",
         "region": "us-southeast"
         }' \
-        https://api.linode.com/v4/linode/instances) #| jq -r .id)
-
-        echo $linode_id
+        https://api.linode.com/v4/linode/instances | jq -r .id)
 }
 
 wait_for_it () {
