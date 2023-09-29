@@ -1,0 +1,18 @@
+name: setup
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      - name: deploy runner instance
+        run: ./scripts/ghrunner.sh jcotoBan postgresql-occ
+        env:
+          linode_token: ${{ secrets.LINODE_API_TOKEN }}
+          root_password: ${{ secrets.ROOT_PASSWORD }}
+          gh_token: ${{ secrets.ACTIONS_TOKEN }}

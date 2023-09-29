@@ -1,0 +1,55 @@
+---
+name: deploy
+on:
+  workflow_run:
+    workflows: [setup]
+    types: [completed]
+
+jobs:
+  on-success:
+    runs-on: self-hosted
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - run: echo 'The triggering workflow passed'
+
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      - name: set up python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+     - name: copy run script to path
+        run: |
+          mkdir -p $HOME/.local/bin
+          cp ./scripts/run.sh $HOME/.local/bin/run
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: install dependencies
+        run: |
+          sudo apt update
+          sudo apt install openssh-server -y
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r requirements.txt
+          ansible-galaxy install -r collections.yml
+
+      - name: run stackscript
+        run: |
+          ./scripts/testvars.sh
+          ./scripts/ss.sh
+
+      #- name: build ansible environment
+      #  run: |
+      #    run test:build
+      #    run test:deploy
+        env:
+          TOKEN_PASSWORD: ${{ secrets.LINODE_API_TOKEN }}
+          #VARS_URL: ${{ secrets.TEST_VARS_URL }}
+  
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - run: echo 'The triggering workflow failed'
