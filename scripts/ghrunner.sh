@@ -25,8 +25,7 @@ create_runner () {
         "stackscript_id": 1244472,
         "stackscript_data": {
             "repository": "'"${repo}"'",
-            "gh_password": "'"${registration_token}"'",
-            "owner": "'"${owner}"'"
+            "gh_password": "'"${registration_token}"'"
         },
         "authorized_keys": [
             "ssh-rsa AAAA_valid_public_ssh_key_123456785== user@their-computer"
