@@ -39,7 +39,7 @@ create_runner () {
         }' \
         https://api.linode.com/v4/linode/instances) | #jq -r .id)
 
-        echo $linode_ids
+        echo $linode_id
 }
 
 wait_for_it () {
