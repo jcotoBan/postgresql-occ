@@ -13,6 +13,8 @@ runner_token () {
     https://api.github.com/repos/${owner}/${repo}/actions/runners/registration-token | jq -r .token)
 }
 
+echo "${linode_token}"
+
 create_runner () {
     # create self-hosted runner linode from stackscript
     linode_id=$(curl -sH "Content-Type: application/json" \
