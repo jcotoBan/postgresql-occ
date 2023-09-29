@@ -22,7 +22,7 @@ create_runner () {
         "swap_size": 512,
         "image": "linode/ubuntu22.04",
         "root_pass": "'"${root_password}"'",
-        "stackscript_id": 1112851,
+        "stackscript_id": 1244472,
         "stackscript_data": {
             "repository": "'"${repo}"'",
             "gh_password": "'"${registration_token}"'",
@@ -37,9 +37,7 @@ create_runner () {
         "type": "g6-standard-4",
         "region": "us-southeast"
         }' \
-        https://api.linode.com/v4/linode/instances) #| jq -r .id)
-
-        echo $linode_id
+        https://api.linode.com/v4/linode/instances | jq -r .id)
 }
 
 wait_for_it () {
