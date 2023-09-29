@@ -80,3 +80,5 @@ Now run the `site.yml` playbook with the `hosts` inventory file.
 ansible-playbook -vvv -i hosts site.yml
 ```
 
+Test to erase.
+
