@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# The actauly Marketplace app/cluster setup stackscript.
+# The actual Marketplace app/cluster setup stackscript.
 # Example from postgresql-occ
 # ----------
 

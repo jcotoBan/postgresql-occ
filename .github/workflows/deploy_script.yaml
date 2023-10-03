@@ -1,4 +1,4 @@
-name: deploy
+name: deploy_script_linode
 on: 
   workflow_run:
     workflows: [setup]
@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: 3.9
 
-     - name: copy run script to path
+      - name: copy run script to path
         run: |
           mkdir -p $HOME/.local/bin
           cp ./scripts/run.sh $HOME/.local/bin/run
