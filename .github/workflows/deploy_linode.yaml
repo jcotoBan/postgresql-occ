@@ -1,6 +1,5 @@
----
 name: deploy
-on:
+on: 
   workflow_run:
     workflows: [setup]
     types: [completed]
