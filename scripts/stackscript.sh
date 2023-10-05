@@ -17,9 +17,8 @@
 # <UDF name="gh_password" label="Github token" />
 
 setup () {
-    DEBIAN_FRONTEND=noninteractive
     apt-get update
-    apt-get -yq upgrade
+    DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade
 }
 
 install () {
