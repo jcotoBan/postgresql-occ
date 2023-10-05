@@ -30,7 +30,7 @@ install () {
 
 run () {
     ./bin/installdependencies.sh
-    ./config.sh --url https://github.com/linode-solutions/${REPOSITORY} --token ${GH_PASSWORD}
+    ./config.sh --url https://github.com/linode-solutions/${REPOSITORY} --token ${GH_PASSWORD} #Change accordingly
     ./run.sh
 }
 
