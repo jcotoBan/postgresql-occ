@@ -36,4 +36,4 @@ To report a bug or request a feature, please open a GitHub Issue. For general fe
 
 - Elvis Segura (@n0vabyte)
 
-- Just a test 7
+- Just a test 8

@@ -30,7 +30,7 @@ install () {
 
 run () {
     ./bin/installdependencies.sh
-     RUNNER_ALLOW_RUNASROOT="1" ./config.sh --url https://github.com/linode-solutions/${REPOSITORY} --token ${GH_PASSWORD} #Change accordingly
+    RUNNER_ALLOW_RUNASROOT="1" ./config.sh --url https://github.com/linode-solutions/${REPOSITORY} --token ${GH_PASSWORD} #Change accordingly
     ./run.sh
 }
 
