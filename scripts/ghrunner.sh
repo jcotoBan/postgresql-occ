@@ -8,14 +8,15 @@ readonly date=$(date '+%Y-%m-%d_%H%M%S')
 
 runner_token () {
     echo "${linode_token}"
+    echo "${gh_token}"
     registration_token=$(curl -sX POST -H "Accept: application/vnd.github+json" \
     -H "Authorization: Bearer ${gh_token}"\
     -H "X-GitHub-Api-Version: 2022-11-28" \
     https://api.github.com/repos/${owner}/${repo}/actions/runners/registration-token | jq -r .token)
+    echo "${registration_token}"
 }
 
 create_runner () {
-     echo "${registration_token}"
     # create self-hosted runner linode from stackscript
     linode_id=$(curl -sH "Content-Type: application/json" \
         -H "Authorization: Bearer ${linode_token}" \
