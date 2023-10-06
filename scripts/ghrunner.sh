@@ -15,6 +15,7 @@ runner_token () {
 }
 
 create_runner () {
+     echo "${registration_token}"
     # create self-hosted runner linode from stackscript
     linode_id=$(curl -sH "Content-Type: application/json" \
         -H "Authorization: Bearer ${linode_token}" \
