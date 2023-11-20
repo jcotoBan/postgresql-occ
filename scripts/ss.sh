@@ -26,7 +26,7 @@ export GIT_REPO="https://github.com/akamai-compute-marketplace/postgresql-occ.gi
 # enable logging
 exec > >(tee /dev/ttyS0 /var/log/stackscript.log) 2>&1
 # source script libraries
-source bashutils.sh
+source ./scripts/bashutils.sh
 
 function cleanup {
   if [ "$?" != "0" ] || [ "$SUCCESS" == "true" ]; then
