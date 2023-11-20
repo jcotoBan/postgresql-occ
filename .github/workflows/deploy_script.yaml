@@ -41,6 +41,11 @@ jobs:
           ./scripts/testvars.sh
           ./scripts/ss.sh
 
+      - name: run cleanup script
+        run: |
+          chmod +x ./scripts/cleanup.sh
+          ./scripts/cleanup.sh
+
       #- name: build ansible environment
       #  run: |
       #    run test:build
