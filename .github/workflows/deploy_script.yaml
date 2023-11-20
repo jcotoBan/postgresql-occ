@@ -36,8 +36,8 @@ jobs:
 
       - name: run stackscript
         run: |
-          chmod +x /scripts/testvars.sh
-          chmod +x /scripts/ss.sh
+          chmod +x ./scripts/testvars.sh
+          chmod +x ./scripts/ss.sh
           ./scripts/testvars.sh
           ./scripts/ss.sh
 
