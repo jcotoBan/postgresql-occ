@@ -15,7 +15,12 @@ trap "cleanup $? $LINENO" EXIT
 # <UDF name="cluster_size" label="PostgeSQL cluster size" default="3" oneof="3" />
 
 # ...
-source ./scripts/testvars.sh
+
+export token_password="${linode_token}"
+export cluster_name="test_postgres_cluster"
+export sudo_username="testuser"
+export add_ssh_keys="yes"
+export cluster_size="3"
 
 
 # set force apt non-interactive
