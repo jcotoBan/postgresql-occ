@@ -69,6 +69,8 @@ function configure_privateip {
   fi
 }
 function rename_provisioner {
+ echo "token password"
+ echo $TOKEN_PASSWORD
   INSTANCE_PREFIX=$(curl -sH "Authorization: Bearer ${TOKEN_PASSWORD}" "https://api.linode.com/v4/linode/instances/${LINODE_ID}" | jq -r .label)
   export INSTANCE_PREFIX="${INSTANCE_PREFIX}"
   echo "[+] renaming the provisioner"
