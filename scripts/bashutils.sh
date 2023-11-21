@@ -1054,6 +1054,6 @@ function stackscript_cleanup {
     echo 'Acquire::ForceIPv4 "true";' > /etc/apt/apt.conf.d/99force-ipv4
     # Clean up
     rm /root/StackScript
-    rm /root/ssinclude*
+    #rm /root/ssinclude*
     echo "Installation complete!"
 }
