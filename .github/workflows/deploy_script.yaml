@@ -36,9 +36,7 @@ jobs:
 
       - name: run stackscript
         run: |
-          chmod +x ./scripts/testvars.sh
           chmod +x ./scripts/ss.sh
-          ./scripts/testvars.sh
           ./scripts/ss.sh
         env:
           linode_token: ${{ secrets.LINODE_API_TOKEN }}

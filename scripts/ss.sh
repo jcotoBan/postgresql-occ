@@ -15,6 +15,7 @@ trap "cleanup $? $LINENO" EXIT
 # <UDF name="cluster_size" label="PostgeSQL cluster size" default="3" oneof="3" />
 
 # ...
+source ./scripts/testvars.sh
 
 
 # set force apt non-interactive
