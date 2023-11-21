@@ -13,3 +13,4 @@ export sudo_username="testuser"
 export add_ssh_keys="yes"
 export cluster_size="3"
 
+echo $TOKEN_PASSWORD

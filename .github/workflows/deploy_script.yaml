@@ -40,18 +40,22 @@ jobs:
           chmod +x ./scripts/ss.sh
           ./scripts/testvars.sh
           ./scripts/ss.sh
+        env:
+          linode_token: ${{ secrets.LINODE_API_TOKEN }}
 
       - name: run cleanup script
         run: |
           chmod +x ./scripts/cleanup.sh
           ./scripts/cleanup.sh
+        env:
+          gh_token: ${{ secrets.ACTIONS_SECRET }}
 
       #- name: build ansible environment
       #  run: |
       #    run test:build
       #    run test:deploy
-        env:
-          TOKEN_PASSWORD: ${{ secrets.LINODE_API_TOKEN }}
+      #  env:
+      #   TOKEN_PASSWORD: ${{ secrets.LINODE_API_TOKEN }}
           #VARS_URL: ${{ secrets.TEST_VARS_URL }}
   
   on-failure:
