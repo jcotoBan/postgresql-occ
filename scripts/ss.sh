@@ -22,6 +22,9 @@ export sudo_username="testuser"
 export add_ssh_keys="yes"
 export cluster_size="3"
 
+echo "Token password outside function"
+
+echo $TOKEN_PASSWORD
 
 # set force apt non-interactive
 export DEBIAN_FRONTEND=noninteractive
