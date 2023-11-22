@@ -21,9 +21,6 @@ export sudo_username="testuser"
 export add_ssh_keys="yes"
 export cluster_size="3"
 
-echo "This is the token password: "
-echo $TOKEN_PASSWORD
-
 
 # set force apt non-interactive
 export DEBIAN_FRONTEND=noninteractive
