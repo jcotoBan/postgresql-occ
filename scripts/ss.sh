@@ -16,15 +16,15 @@ trap "cleanup $? $LINENO" EXIT
 
 # ...
 
-export token_password="$linode_token"
+export token_password=$linode_token_api
 export cluster_name="test_postgres_cluster"
 export sudo_username="testuser"
 export add_ssh_keys="yes"
 export cluster_size="3"
 
 echo "Token password outside function"
-
 echo $TOKEN_PASSWORD
+echo $linode_token_api
 
 # set force apt non-interactive
 export DEBIAN_FRONTEND=noninteractive
