@@ -16,15 +16,11 @@ trap "cleanup $? $LINENO" EXIT
 
 # ...
 
-export token_password=$linode_token_api
 export cluster_name="test_postgres_cluster"
 export sudo_username="testuser"
 export add_ssh_keys="yes"
 export cluster_size="3"
 
-echo "Token password outside function"
-echo $TOKEN_PASSWORD
-echo $linode_token_api
 
 # set force apt non-interactive
 export DEBIAN_FRONTEND=noninteractive
@@ -78,9 +74,6 @@ function configure_privateip {
   fi
 }
 function rename_provisioner {
- echo "token password"
- echo $TOKEN_PASSWORD
- echo $LINODE_TOKEN
   INSTANCE_PREFIX=$(curl -sH "Authorization: Bearer ${TOKEN_PASSWORD}" "https://api.linode.com/v4/linode/instances/${LINODE_ID}" | jq -r .label)
   export INSTANCE_PREFIX="${INSTANCE_PREFIX}"
   echo "[+] renaming the provisioner"

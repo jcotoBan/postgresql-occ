@@ -39,7 +39,7 @@ jobs:
           chmod +x ./scripts/ss.sh
           ./scripts/ss.sh
         env:
-          linode_token_api: ${{ secrets.LINODE_API_TOKEN }}
+          token_password: ${{ secrets.LINODE_API_TOKEN }}
 
       - name: run cleanup script
         run: |
