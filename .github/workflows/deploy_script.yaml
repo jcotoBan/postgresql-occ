@@ -44,7 +44,7 @@ jobs:
       - name: run cleanup script
         run: |
           chmod +x ./scripts/cleanup.sh
-          ./scripts/cleanup.sh
+          ./scripts/cleanup.sh jcotoBan postgresql-occ
         env:
           gh_token: ${{ secrets.ACTIONS_SECRET }}
 

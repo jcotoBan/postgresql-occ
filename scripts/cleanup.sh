@@ -2,6 +2,13 @@
 
 # linode-cli linodes list --json | jq '.[] | select (.label | startswith("kubeslice"))' | jq '.id' | xargs -I {} linode-cli linodes delete {}
 
+set -e
+
+readonly owner="${1}"
+readonly repo="${2}"
+readonly date=$(date '+%Y-%m-%d_%H%M%S')
+
+
 remove_runner () {
     registration_token=$(curl -sX POST -H "Accept: application/vnd.github+json" \
     -H "Authorization: Bearer ${gh_token}"\
