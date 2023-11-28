@@ -6,6 +6,10 @@
     name: "{{ pg1_hostname }}"
   run_once: true
   delegate_to: "{{ groups['postgresql'][0] }}"
+  register: systemd_result
+
+- debug:
+    var: systemd_result
 
 - name: set pg2 hostname
   hostname:

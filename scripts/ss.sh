@@ -26,7 +26,7 @@ export cluster_size="3"
 export DEBIAN_FRONTEND=noninteractive
 
 # git repo
-export GIT_REPO="https://github.com/akamai-compute-marketplace/postgresql-occ.git"
+export GIT_REPO="https://github.com/jcotoBan/postgresql-occ.git"
 
 # enable logging
 exec > >(tee /dev/ttyS0 /var/log/stackscript.log) 2>&1
