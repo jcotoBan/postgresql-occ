@@ -10,7 +10,9 @@
   register: systemd_result
 
 - debug:
-    var: systemd_result
+    var: 
+    - systemd_result
+    - pg1_hostname
 
 - name: set pg2 hostname
   hostname:
