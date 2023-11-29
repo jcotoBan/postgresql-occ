@@ -29,10 +29,10 @@ clean_instances() {
 
     curl -s -H "Authorization: Bearer ${TOKEN_PASSWORD}" \
     https://api.linode.com/v4/linode/instances \
-    | jq '.data[] | select (.label | startswith("${repo}"))' | jq '.id'
-    # | xargs -I {} curl -H "Authorization: Bearer ${TOKEN_PASSWORD}" \
-    #    -X DELETE \
-    #    https://api.linode.com/v4/linode/instances/{}
+    | jq --arg repo "${repo}" '.data[] | select (.label | startswith($repo))' | jq '.id' \
+    | xargs -I {} curl -H "Authorization: Bearer ${TOKEN_PASSWORD}" \
+       -X DELETE \
+        https://api.linode.com/v4/linode/instances/{}
 
 }
 
