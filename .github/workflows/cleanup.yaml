@@ -21,3 +21,4 @@ jobs:
           ./scripts/cleanup.sh jcotoBan postgresql-occ
         env:
           gh_token: ${{ secrets.ACTIONS_SECRET }}
+          TOKEN_PASSWORD: ${{ secrets.LINODE_API_TOKEN }}
