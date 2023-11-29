@@ -16,7 +16,7 @@ trap "cleanup $? $LINENO" EXIT
 
 # ...
 
-export cluster_name="jcoto.com"
+export CLUSTER_NAME="jcoto.com"
 export sudo_username="testuser"
 export add_ssh_keys="yes"
 export cluster_size="3"
