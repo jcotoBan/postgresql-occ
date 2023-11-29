@@ -17,9 +17,9 @@ trap "cleanup $? $LINENO" EXIT
 # ...
 
 export CLUSTER_NAME="jcoto.com"
-export sudo_username="testuser"
-export add_ssh_keys="yes"
-export cluster_size="3"
+export SUDO_USERNAME="testuser"
+export ADD_SSH_KEYS="yes"
+export CLUSTER_SIZE="3"
 
 
 # set force apt non-interactive
