@@ -18,6 +18,4 @@ remove_runner () {
     ./config.sh remove --token $registration_token
 }
 
-remove_runner()
-
-
+remove_runner
