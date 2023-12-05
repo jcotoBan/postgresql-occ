@@ -22,3 +22,4 @@ jobs:
         env:
           gh_token: ${{ secrets.ACTIONS_SECRET }}
           TOKEN_PASSWORD: ${{ secrets.LINODE_API_TOKEN }}
+          runner_name: ${{ env.RUNNER_NAME }}

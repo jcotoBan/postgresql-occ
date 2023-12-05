@@ -36,6 +36,16 @@ create_runner () {
         "region": "us-southeast"
         }' \
         https://api.linode.com/v4/linode/instances | jq -r .id)
+
+        #Save the instance name
+
+        curl -L \
+        -X POST \
+        -H "Accept: application/vnd.github+json" \
+        -H "Authorization: Bearer ${gh_token}" \
+        -H "X-GitHub-Api-Version: 2022-11-28" \
+        https://api.github.com/repos/OWNER/REPO/actions/variables \
+        -d '{"name":"RUNNER_NAME","value":"'"${repo}_${date}_jcc"'"}'
 }
 
 wait_for_it () {
