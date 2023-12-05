@@ -36,4 +36,4 @@ To report a bug or request a feature, please open a GitHub Issue. For general fe
 
 - Elvis Segura (@n0vabyte)
 
-- Testing the host issue #8
+- Running a test # 1
