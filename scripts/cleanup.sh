@@ -27,12 +27,16 @@ readonly date=$(date '+%Y-%m-%d_%H%M%S')
 
 clean_instances() {
 
-    curl -s -H "Authorization: Bearer ${TOKEN_PASSWORD}" \
-    https://api.linode.com/v4/linode/instances \
-    | jq --arg runner_name "${runner_name}" '.data[] | select (.label | startswith($runner_name))' | jq '.id'
-    #| xargs -I {} curl -H "Authorization: Bearer ${TOKEN_PASSWORD}"
-    #   -X DELETE \
-    #    https://api.linode.com/v4/linode/instances/{}
+    if [ -n "$runner_name" ]; then
+        curl -s -H "Authorization: Bearer ${TOKEN_PASSWORD}" \
+        https://api.linode.com/v4/linode/instances \
+        | jq --arg runner_name "${runner_name}" '.data[] | select (.label | startswith($runner_name))' | jq '.id'
+        | xargs -I {} curl -H "Authorization: Bearer ${TOKEN_PASSWORD}"
+            -X DELETE \
+            https://api.linode.com/v4/linode/instances/{}
+    else
+        echo "Be careful, runner name is empty"
+    fi
 
     curl -L \
     -X DELETE \
