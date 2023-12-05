@@ -29,17 +29,17 @@ clean_instances() {
 
     curl -s -H "Authorization: Bearer ${TOKEN_PASSWORD}" \
     https://api.linode.com/v4/linode/instances \
-    | jq --arg runner_name "${runner_name}" '.data[] | select (.label | startswith($runner_name))' | jq '.id' \
-    | xargs -I {} curl -H "Authorization: Bearer ${gh_token}" \
-       -X DELETE \
-        https://api.linode.com/v4/linode/instances/{}
+    | jq --arg runner_name "${runner_name}" '.data[] | select (.label | startswith($runner_name))' | jq '.id'
+    #| xargs -I {} curl -H "Authorization: Bearer ${TOKEN_PASSWORD}"
+    #   -X DELETE \
+    #    https://api.linode.com/v4/linode/instances/{}
 
     curl -L \
     -X DELETE \
     -H "Accept: application/vnd.github+json" \
     -H "Authorization: Bearer ${gh_token}" \
     -H "X-GitHub-Api-Version: 2022-11-28" \
-    https://api.github.com/repos/${owner}${repo}/actions/variables/RUNNER_NAME
+    https://api.github.com/repos/${owner}/${repo}/actions/variables/RUNNER_NAME
 
 }
 
