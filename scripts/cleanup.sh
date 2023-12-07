@@ -4,7 +4,6 @@ set -e
 
 readonly owner="${1}"
 readonly repo="${2}"
-readonly date=$(date '+%Y-%m-%d_%H%M%S')
 
 
 # linode-cli linodes list --json | jq '.[] | select (.label | startswith("kubeslice"))' | jq '.id' | xargs -I {} linode-cli linodes delete {}
