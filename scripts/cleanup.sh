@@ -11,11 +11,11 @@ readonly date=$(date '+%Y-%m-%d_%H%M%S')
 
  remove_runner () {
 
-    runner_id=$(curl -L -s \
-    -H "Accept: application/vnd.github+json" \
-    -H "Authorization: Bearer ${gh_token}" \
-    -H "X-GitHub-Api-Version: 2022-11-28" \
-    https://api.github.com/repos/${owner}/${repo}/actions/runners | jq '.runners[0].id')
+    runner_id=$(curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer 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" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/jcotoBan/postgresql-occ/actions/runners | jq --arg runner_name "${runner_name}" '.runners[] | select(.labels[].name == $runner_name) | .id')
 
     curl -L \
     -X DELETE \
