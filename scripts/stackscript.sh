@@ -14,8 +14,10 @@
 
 
 # <UDF name="repository" label="Github repository" />
+# <UDF name="owner" label="Github repo owner" />
 # <UDF name="gh_password" label="Github token" />
 # <UDF name="runner_label" label="Github runner label" />
+
 
 setup () {
     apt-get update
@@ -31,7 +33,7 @@ install () {
 
 run () {
     ./bin/installdependencies.sh
-    RUNNER_ALLOW_RUNASROOT="1" ./config.sh --url https://github.com/linode-solutions/${REPOSITORY} --token ${GH_PASSWORD}  #Change accordingly
+    RUNNER_ALLOW_RUNASROOT="1" ./config.sh --url https://github.com/${OWNER}/${REPOSITORY} --token ${GH_PASSWORD} --labels ${RUNNER_LABEL}   #Change accordingly
     RUNNER_ALLOW_RUNASROOT="1" ./run.sh
 }
 
@@ -39,4 +41,3 @@ run () {
 setup
 install
 run
-
