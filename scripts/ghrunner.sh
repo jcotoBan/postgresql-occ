@@ -34,7 +34,7 @@ create_runner () {
         "private_ip": true,
         "label": "'"${repo}_${date}_jcc"'",
         "type": "g6-standard-4",
-        "region": "us-southeast"
+        "region": "us-sea"
         }' \
         https://api.linode.com/v4/linode/instances | jq -r .id)
 
