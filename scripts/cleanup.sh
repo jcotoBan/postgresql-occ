@@ -5,14 +5,11 @@ set -e
 readonly owner="${1}"
 readonly repo="${2}"
 
-
-# linode-cli linodes list --json | jq '.[] | select (.label | startswith("kubeslice"))' | jq '.id' | xargs -I {} linode-cli linodes delete {}
-
  remove_runner () {
 
     runner_id=$(curl -L \
   -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Bearer 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" \
+  -H "Authorization: Bearer ${gh_token}" \
   -H "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/repos/jcotoBan/postgresql-occ/actions/runners | jq --arg runner_name "${runner_name}" '.runners[] | select(.labels[].name == $runner_name) | .id')
 
